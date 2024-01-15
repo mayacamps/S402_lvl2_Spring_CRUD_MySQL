@@ -4,7 +4,6 @@ import cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.domain.Fruit;
 import cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.services.impl.FruitServiceImplementation;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/fruit")
 public class FruitController {
-    @Autowired
-    FruitServiceImplementation fruitServiceImp;
+    private final FruitServiceImplementation fruitServiceImp;
+
+    public FruitController(FruitServiceImplementation fruitServiceImp) {
+        this.fruitServiceImp = fruitServiceImp;
+    }
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Fruit>> getAll() {

@@ -4,7 +4,6 @@ import cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.domain.Fruit;
 import cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.repository.FruitRepository;
 import cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.services.FruitService;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,9 +13,11 @@ import java.util.Optional;
 
 @Service
 public class FruitServiceImplementation implements FruitService {
+    private final FruitRepository fruitRepo;
 
-    @Autowired
-    FruitRepository fruitRepo;
+    public FruitServiceImplementation(FruitRepository fruitRepo) {
+        this.fruitRepo = fruitRepo;
+    }
 
     @Override
     public List<Fruit> getAllFruits() {
