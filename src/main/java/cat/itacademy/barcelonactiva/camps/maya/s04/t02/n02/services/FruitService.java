@@ -8,7 +8,7 @@ public interface FruitService {
     public List<Fruit> getAllFruits();
     public Fruit getFruit(int id);
     public void addFruit(Fruit fruit);
-    public boolean updateFruit(int id, Fruit fruit);
+    public void updateFruit(int id, Fruit fruit);
     public void deleteFruit(int id);
 
 }

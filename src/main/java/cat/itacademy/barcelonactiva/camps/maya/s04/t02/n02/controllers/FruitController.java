@@ -44,11 +44,9 @@ public class FruitController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Fruit newFruit){
-        if (fruitServiceImp.updateFruit(id, newFruit)){
-            return ResponseEntity.status(HttpStatus.OK).body("Item successfully updated.");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body("No changes were made.");
+    public ResponseEntity<String> update(@PathVariable("id") int id, @Valid @RequestBody Fruit newFruit){
+        fruitServiceImp.updateFruit(id, newFruit);
+        return ResponseEntity.status(HttpStatus.OK).body("Item successfully updated.");
     }
 
     @DeleteMapping("/delete/{id}")
