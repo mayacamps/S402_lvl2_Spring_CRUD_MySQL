@@ -3,7 +3,6 @@ package cat.itacademy.barcelonactiva.camps.maya.s04.t02.n02.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-
 import java.io.Serializable;
 
 @Entity
